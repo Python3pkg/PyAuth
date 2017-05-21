@@ -19,7 +19,7 @@
 
 import wx
 
-from Logging import GetLogger
+from .Logging import GetLogger
 
 
 class NewEntryDialog(wx.Dialog):

@@ -18,14 +18,14 @@
 ## along with this program.  If not, see http://www.gnu.org/licenses/
 
 import argparse
-import logging
+from . import logging
 import os.path
 import wx
 
-import Configuration
-from About import GetProgramName, GetProgramVersionString, GetVendorName
-from AuthFrame import AuthFrame as AuthFrame
-from Logging import ConfigureLogging, GetLogger
+from . import Configuration
+from .About import GetProgramName, GetProgramVersionString, GetVendorName
+from .AuthFrame import AuthFrame as AuthFrame
+from .Logging import ConfigureLogging, GetLogger
 
 
 class PyAuthApp(wx.App):

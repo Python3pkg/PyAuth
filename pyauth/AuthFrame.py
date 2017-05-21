@@ -20,18 +20,18 @@
 import math
 import wx
 
-import Configuration
+from . import Configuration
 import pkg_resources
-from About import GetAboutInfo, GetIconBundle, GetTaskbarIcon
-from AuthEntryPanel import AuthEntryPanel
-from AuthenticationStore import AuthenticationStore
-from ChangeDatabasePasswordDialog import ChangeDatabasePasswordDialog
-from DatabasePasswordDialog import DatabasePasswordDialog
-from Errors import DecryptionError, PasswordError
-from HTMLTextDialog import HTMLTextDialog
-from Logging import GetLogger
-from NewEntryDialog import NewEntryDialog
-from UpdateEntryDialog import UpdateEntryDialog
+from .About import GetAboutInfo, GetIconBundle, GetTaskbarIcon
+from .AuthEntryPanel import AuthEntryPanel
+from .AuthenticationStore import AuthenticationStore
+from .ChangeDatabasePasswordDialog import ChangeDatabasePasswordDialog
+from .DatabasePasswordDialog import DatabasePasswordDialog
+from .Errors import DecryptionError, PasswordError
+from .HTMLTextDialog import HTMLTextDialog
+from .Logging import GetLogger
+from .NewEntryDialog import NewEntryDialog
+from .UpdateEntryDialog import UpdateEntryDialog
 
 
 class AuthTaskbarIcon(wx.TaskBarIcon):

@@ -19,7 +19,7 @@
 
 import wx
 
-from Logging import GetLogger
+from .Logging import GetLogger
 
 
 class ChangeDatabasePasswordDialog(wx.Dialog):

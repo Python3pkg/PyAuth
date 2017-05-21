@@ -17,11 +17,11 @@
 ## You should have received a copy of the GNU General Public License
 ## along with this program.  If not, see http://www.gnu.org/licenses/
 
-import logging
-import logging.handlers
+from . import logging
+from . import logging.handlers
 import os.path
 
-import Configuration
+from . import Configuration
 import pyauth
 
 

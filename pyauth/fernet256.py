@@ -10,7 +10,7 @@ proposed update to the Fernet spec pending at https://github.com/fernet/spec/pul
 # 2.0, and the BSD License. See the LICENSE file in the root of this repository
 # for complete details.
 
-from __future__ import absolute_import, division, print_function
+
 
 import base64
 import binascii

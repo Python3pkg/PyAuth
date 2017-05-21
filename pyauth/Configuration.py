@@ -45,7 +45,7 @@ Config items:
 ## You should have received a copy of the GNU General Public License
 ## along with this program.  If not, see http://www.gnu.org/licenses/
 
-import logging
+from . import logging
 import os.path
 import wx
 
@@ -227,7 +227,7 @@ def GetToolIconSize():
 def SetToolIconSize(s):
     """Set the toolbar icon size."""
     if s.GetWidth() != s.GetHeight():
-        logging.warning("Tool icon width and height not equal: %s", unicode(s))
+        logging.warning("Tool icon width and height not equal: %s", str(s))
     x = s.GetWidth()
     if x != 16 and x != 24 and x != 32 and x != 48 and x != wx.DefaultSize.GetWidth():
         logging.warning("Tool icon size not standard, using default size.")

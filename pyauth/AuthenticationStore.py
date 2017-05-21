@@ -21,14 +21,14 @@ import base64
 import errno
 import os
 import string
-import urllib
+import urllib.request, urllib.parse, urllib.error
 import wx
 
 import pyotp
-from About import GetProgramName, GetVendorName
-from Encryption import create_encryption_object, generate_salt
-from Errors import DecryptionError, PasswordError
-from Logging import GetLogger
+from .About import GetProgramName, GetVendorName
+from .Encryption import create_encryption_object, generate_salt
+from .Errors import DecryptionError, PasswordError
+from .Logging import GetLogger
 
 
 class AuthenticationStore:
@@ -478,7 +478,7 @@ class AuthenticationEntry:
 
     def GetKeyUri(self):
         """Get the provisioning key URI."""
-        uri = "otpauth://totp/" + urllib.quote(self.GetQualifiedAccount())
+        uri = "otpauth://totp/" + urllib.parse.quote(self.GetQualifiedAccount())
         qs_params = {}
         qs_params['secret'] = self.secret
         if self.provider != '':
@@ -486,7 +486,7 @@ class AuthenticationEntry:
         qs_params['digits'] = self.digits
         qs_params['period'] = self.GetPeriod()
         qs_params['algorithm'] = self.GetAlgorithm()
-        uri += '?' + urllib.urlencode(qs_params)
+        uri += '?' + urllib.parse.urlencode(qs_params)
         return uri
 
     def GenerateNextCode(self):
@@ -499,5 +499,5 @@ class AuthenticationEntry:
             except Exception as e:
                 c = '?' * self.digits
                 self.otp_problem = True
-                GetLogger().error("%s:%s OTP error: %s", self.provider, self.account, unicode(e))
+                GetLogger().error("%s:%s OTP error: %s", self.provider, self.account, str(e))
         return c

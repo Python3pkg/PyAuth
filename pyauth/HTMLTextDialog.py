@@ -20,7 +20,7 @@
 import wx
 import wx.html
 
-from Logging import GetLogger
+from .Logging import GetLogger
 
 
 class ClickableHTMLWindow(wx.html.HtmlWindow):

@@ -19,8 +19,8 @@
 
 import wx
 
-from Logging import GetLogger
-from QrCode import QrCodeFrame
+from .Logging import GetLogger
+from .QrCode import QrCodeFrame
 
 
 class AuthEntryPanel(wx.Panel):

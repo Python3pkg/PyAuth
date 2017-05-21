@@ -20,8 +20,8 @@
 import wx
 from io import BytesIO
 
-import Configuration
-import qrcode
+from . import Configuration
+from . import qrcode
 
 
 class QrCodeImage:

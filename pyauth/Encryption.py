@@ -28,12 +28,12 @@ Unicode string containing base64 data directly).
 import base64
 import os
 
-from Errors import DecryptionError, PasswordError
+from .Errors import DecryptionError, PasswordError
 from cryptography.hazmat.backends import default_backend
 from cryptography.hazmat.primitives import hashes, padding
 from cryptography.hazmat.primitives.ciphers import Cipher, algorithms, modes
 from cryptography.hazmat.primitives.kdf.pbkdf2 import PBKDF2HMAC
-from fernet256 import Fernet256, InvalidToken
+from .fernet256 import Fernet256, InvalidToken
 
 
 class Fernet_256:
@@ -86,7 +86,7 @@ class Fernet_256:
         cleartext = padder.update(secret.encode())
         cleartext += padder.finalize()
         ciphertext = f.encrypt(cleartext.encode())
-        return unicode(ciphertext)
+        return str(ciphertext)
 
     def Decrypt(self, token):
         """Decrypt a secret using the current key."""
@@ -100,7 +100,7 @@ class Fernet_256:
         unpadder = padding.PKCS7(algorithms.AES.block_size).unpadder()
         secret = unpadder.update(cleartext)
         secret += unpadder.finalize()
-        return unicode(secret)
+        return str(secret)
 
 
 class Old_AES:
@@ -156,7 +156,7 @@ class Old_AES:
             cleartext = decryptor.update(raw_ciphertext) + decryptor.finalize()
         except Exception as e:
             raise DecryptionError("Decryption failure: " + str(e))
-        return unicode(cleartext).rstrip()
+        return str(cleartext).rstrip()
 
 
 class Cleartext:
